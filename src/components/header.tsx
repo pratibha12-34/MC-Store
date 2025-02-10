@@ -8,7 +8,7 @@ import { Pattaya } from 'next/font/google';
 import CurrencyDropdown from './currencyDropdown'
 import { useStore } from '@/store/store'
 import localFont from "next/font/local"
-import axios from 'axios'
+import axios from 'axios';
 import { useRouter } from 'next/navigation'
 import { useSession, signIn, signOut } from 'next-auth/react'
 
@@ -33,6 +33,7 @@ export default function Header() {
   const { setCurrency } = useStore();
   const router = useRouter()
   const { data: session } = useSession()
+  console.log(session)
 
   const handleCurrencyChange = async (currency: string) => {
     await setCurrency(currency);

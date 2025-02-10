@@ -11,6 +11,8 @@ import axios from 'axios'
 import { useSession, signIn, signOut } from "next-auth/react"
 import srvGif from "../../public/images/logo/logo.gif"
 import { useRouter } from 'next/navigation'
+import MainLayout from '@/components/mainLayout'
+
 
 export default function HomePage() {
   const [isCopied, setIsCopied] = useState(false);
@@ -55,8 +57,8 @@ export default function HomePage() {
   }, [])
 
   return (
+    <MainLayout>
     <section className="text-white py-6 sm:px-8 lg:px-2 flex flex-col gap-8">
-      
       <div className="flex w-full">
         
         <div className="flex w-full md:px-12">
@@ -166,7 +168,7 @@ export default function HomePage() {
           }
         </div>
       </div>
-    
     </section>
+    </MainLayout>
   )
 }

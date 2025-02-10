@@ -29,9 +29,9 @@ export default function RootLayout({
       <body
         className={`${raleway.className} min-h-screen antialiased flex flex-col bg-image`}
       >
-        <MainLayout>
+        {/* <MainLayout> */}
           {children}
-        </MainLayout>
+        {/* </MainLayout> */}
         <Footer />
       </body>
       </SessionWrapper>
