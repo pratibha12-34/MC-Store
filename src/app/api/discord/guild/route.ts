@@ -1,5 +1,3 @@
-import { getServerSession } from "next-auth";
-import { authOptions } from "../../auth/[...nextauth]/route";
 import { NextResponse, NextRequest } from "next/server";
 
 export async function GET(req: NextRequest) {
@@ -16,11 +14,11 @@ export async function GET(req: NextRequest) {
       },
     });
 
-    if (!res.ok) console.log("Failed to fetch Discord guilds");
+    if (!res.ok) throw new Error("Failed to fetch Discord guilds");
 
     const data = await res.json();
     return NextResponse.json(data);
   } catch (error) {
-    console.log(error)
+    console.log("SOme error occured")
   }
 }

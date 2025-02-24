@@ -4,11 +4,10 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 import player from "../../public/images/bg/player.png"
-import { Button } from '@/components/ui/button'
+import {Footer} from "@/components"
 import { Copy, ExternalLink } from 'lucide-react'
 import { discordLink, votingSites } from '@/mcinfo'
 import axios from 'axios'
-import { useSession, signIn, signOut } from "next-auth/react"
 import srvGif from "../../public/images/logo/logo.gif"
 import { useRouter } from 'next/navigation'
 import MainLayout from '@/components/mainLayout'
@@ -57,7 +56,7 @@ export default function HomePage() {
   }, [])
 
   return (
-    <MainLayout>
+    <div><MainLayout>
     <section className="text-white py-6 sm:px-8 lg:px-2 flex flex-col gap-8">
       <div className="flex w-full">
         
@@ -170,5 +169,6 @@ export default function HomePage() {
       </div>
     </section>
     </MainLayout>
+    <Footer /></div>
   )
 }

@@ -1,10 +1,10 @@
 "use client"
 
 import Link from 'next/link'
-import React, { useState } from 'react'
-import { Banknote, CircleHelp, Coins, Crown, Gem, KeySquare, LogOut } from 'lucide-react'
+import React, { ReactNode, useState } from 'react'
 import Image from 'next/image'
 import { Pattaya } from 'next/font/google';
+import { LogOut, Laptop } from 'lucide-react'
 import CurrencyDropdown from './currencyDropdown'
 import { useStore } from '@/store/store'
 import localFont from "next/font/local"
@@ -18,18 +18,16 @@ const pattaya = Pattaya({
   weight: ["400"]
 })
 
+interface props {
+  children?: ReactNode
+}
+
 
 const mcFont = localFont({src: "./mcfont.otf"})
 
-const links = [
-  { id: 1, href: "/store/category/ranks", label: "Ranks", icon: <Crown className="text-orange-700" /> },
-  { id: 2, href: "/store/category/keys", label: "Keys", icon: <KeySquare className="text-orange-700" /> },
-  { id: 3, href: "/store/category/money", label: "Money", icon: <Banknote className="text-orange-700" /> },
-  { id: 4, href: "/store/category/coins", label: "Club Coins", icon: <Coins className="text-orange-700" /> },
-  { id: 5, href: "/store/category/bundles", label: "Bundles", icon: <Gem className="text-orange-700" /> },
-]
 
-export default function Header() {
+
+export default function Header({children}: props) {
   const { setCurrency } = useStore();
   const router = useRouter()
   const { data: session } = useSession()
@@ -63,18 +61,13 @@ export default function Header() {
           </Link>
         </div>
 
-        <nav className="flex flex-wrap justify-center items-center gap-4 lg:gap-0 lg:bg-zinc-800 border-custom text-white font-bold shadow-xl">
-          {
-            links.map((link) => (
-              <Link href={link.href} key={link.id} className="nav-block hover:scale-110 ">
-                {link.label} {link.icon}
-              </Link>
-            ))
-          }
-        </nav>
+
+        {children &&<>{children}</>}
+
+
 
         <div className="flex flex-wrap justify-center gap-4 lg:gap-0  lg:bg-zinc-800 text-white font-bold border-custom shadow-xl">
-          <button className={`${session && "hover:line-through"} bg-zinc-700 hover:bg-zinc-800 lg:bg-transparent nav-block rounded-full lg:rounded-none`} onClick={handleBtn}>
+          <button className={`bg-zinc-700 hover:bg-zinc-800 lg:bg-transparent nav-block rounded-full lg:rounded-none`} onClick={handleBtn}>
             <Image src={session ? session.user.image:"https://mc-heads.net/avatar/MHF_Steve"} alt="steve" width={24} height={24} />
             <div className="">
               {session ? session.user.name : 'Login'}
@@ -83,6 +76,11 @@ export default function Header() {
               <LogOut />
             </div>
           </button>
+          
+          {session?.user.isAdmin && (<button className='p-2 rounded-full lg:rounded-none lg:bg-transparent bg-zinc-700 text-gray-200 hover:bg-zinc-800 lg:hover:bg-zinc-900'>
+            <Link href={'dashboard'}> <Laptop/> </Link>
+          </button>)}
+          
 
           <CurrencyDropdown className="nav-block flex gap-2 items-center p-2 text-base w-full h-full rounded-full lg:rounded-none justify-between lg:bg-transparent bg-zinc-700 text-gray-200 hover:bg-zinc-800 lg:hover:bg-zinc-900" onCurrencyChange={handleCurrencyChange}  />
 

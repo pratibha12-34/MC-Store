@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Raleway } from "next/font/google";
 import "./globals.css";
 import { Footer } from "@/components";
-import MainLayout from "@/components/mainLayout";
 import SessionWrapper from "@/components/sessionWrapper";
 
 const raleway = Raleway({
@@ -32,8 +31,7 @@ export default function RootLayout({
         {/* <MainLayout> */}
           {children}
         {/* </MainLayout> */}
-        <Footer />
-      </body>
+        </body>
       </SessionWrapper>
     </html>
   );
