@@ -1,6 +1,6 @@
 import MainLayout from "@/components/mainLayout";
 import {Footer} from "@/components"
-export default function DashboardLayout({
+export default function StoreLayout({
     children,
   }: {
     children: React.ReactNode

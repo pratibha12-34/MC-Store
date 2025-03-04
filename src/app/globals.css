@@ -6,8 +6,25 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.vt323-regular {
+  font-family: "VT323";
+  font-weight: 400;
+  font-style: normal;
+}
 
 
+/* add the code bellow */ 
+@layer utilities {
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+      display: none;
+  }
+ /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+      -ms-overflow-style: none;  /* IE and Edge */
+      scrollbar-width: none;  /* Firefox */
+}
+}
 
 @media screen and (min-width: 1024px) {
   .border-custom {

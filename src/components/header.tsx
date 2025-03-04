@@ -66,8 +66,8 @@ export default function Header({children}: props) {
 
 
 
-        <div className="flex flex-wrap justify-center gap-4 lg:gap-0  lg:bg-zinc-800 text-white font-bold border-custom shadow-xl">
-          <button className={`bg-zinc-700 hover:bg-zinc-800 lg:bg-transparent nav-block rounded-full lg:rounded-none`} onClick={handleBtn}>
+        <div className="flex flex-wrap justify-center gap-4 lg:gap-0  lg:bg-zinc-800 text-white font-bold border-custom hover:bg-zinc-800 shadow-xl">
+          <button className={`bg-zinc-700 lg:bg-transparent nav-block rounded-full lg:rounded-none`} onClick={handleBtn}>
             <Image src={session ? session.user.image:"https://mc-heads.net/avatar/MHF_Steve"} alt="steve" width={24} height={24} />
             <div className="">
               {session ? session.user.name : 'Login'}
@@ -78,7 +78,7 @@ export default function Header({children}: props) {
           </button>
           
           {session?.user.isAdmin && (<button className='p-2 rounded-full lg:rounded-none lg:bg-transparent bg-zinc-700 text-gray-200 hover:bg-zinc-800 lg:hover:bg-zinc-900'>
-            <Link href={'dashboard'}> <Laptop/> </Link>
+            <Link href={'/dashboard'}> <Laptop/> </Link>
           </button>)}
           
 
