@@ -4,6 +4,7 @@ import React from 'react'
 import logoGif from "../../../public/images/logo/logo.gif"
 
 export default function Store() {
+  
   return (
     <section className="text-white py-6 md:px-8 sm:px-4 lg:px-2">
       <div className="mb-8 w-full flex items-center justify-center">

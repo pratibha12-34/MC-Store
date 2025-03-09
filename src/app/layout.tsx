@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Raleway } from "next/font/google";
 import "./globals.css";
 import { Footer } from "@/components";
+import { Header } from "@/components";
 import SessionWrapper from "@/components/sessionWrapper";
 
 const raleway = Raleway({
@@ -26,8 +27,12 @@ export default function RootLayout({
     <html lang="en" className="dark" data-theme="dark">
       <SessionWrapper>
       <body
-        className={`${raleway.className} min-h-screen antialiased flex flex-col bg-image`}
-      >
+        className={`${raleway.className} h-screen  flex flex-col bg-image`}
+      > 
+     
+      
+     
+      
         {/* <MainLayout> */}
           {children}
         {/* </MainLayout> */}
